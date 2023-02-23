@@ -22,13 +22,25 @@
         </svg>
       </button>
       <div v-show="showMenu" class="absolute top-16 right-0 left-0 bg-white shadow-md">
-        <router-link :to="{ name: 'byName' }" class="block px-4 py-2 hover:bg-orange-500 hover:text-white transition-colors">
+        <router-link
+          :to="{ name: 'byName' }"
+          class="block px-4 py-2 hover:bg-orange-500 hover:text-white transition-colors"
+          @click="closeMenuOnMobile()"
+        >
           Search Meals
         </router-link>
-        <router-link :to="{ name: 'byLetter' }" class="block px-4 py-2 hover:bg-orange-500 hover:text-white transition-colors">
+        <router-link
+          :to="{ name: 'byLetter' }"
+          class="block px-4 py-2 hover:bg-orange-500 hover:text-white transition-colors"
+          @click="closeMenuOnMobile()"
+        >
           Meals By Letter
         </router-link>
-        <router-link :to="{ name: 'ingredients' }" class="block px-4 py-2 hover:bg-orange-500 hover:text-white transition-colors">
+        <router-link
+          :to="{ name: 'ingredients' }"
+          class="block px-4 py-2 hover:bg-orange-500 hover:text-white transition-colors"
+          @click="closeMenuOnMobile()"
+        >
           Meals By Ingredients
         </router-link>
       </div>
@@ -39,4 +51,8 @@
 import { ref } from "@vue/reactivity";
 
 const showMenu = ref(false);
+
+function closeMenuOnMobile() {
+  showMenu.value = false;
+}
 </script>
